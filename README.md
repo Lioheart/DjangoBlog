@@ -15,6 +15,7 @@ Witryna internetowa aplikacji Blog.
 [![Django CI](https://github.com/Lioheart/DjangoBlog/actions/workflows/django.yml/badge.svg)](https://github.com/Lioheart/DjangoBlog/actions/workflows/django.yml)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/Lioheart/DjangoBlog.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Lioheart/DjangoBlog/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Lioheart/DjangoBlog.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Lioheart/DjangoBlog/context:python)
+[![Requirements Status](https://requires.io/github/Lioheart/DjangoBlog/requirements.svg?branch=master)](https://requires.io/github/Lioheart/DjangoBlog/requirements/?branch=master)
 
 Aplikacja ta zawiera podstawowe modele bloga, widoki, szablony i adresy URL przeznaczone do wyświetlania postów.
 Zawiera także obsługę ORM i konfigurację witryny administracyjnej.
