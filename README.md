@@ -11,8 +11,8 @@ Witryna internetowa aplikacji Blog.
 * [Licencja](#licencja)
 
 ## Informacje
-[![Build Status](https://app.travis-ci.com/Lioheart/DjangoBlog.svg?branch=master)](https://app.travis-ci.com/Lioheart/DjangoBlog)
 [![Django CI](https://github.com/Lioheart/DjangoBlog/actions/workflows/django.yml/badge.svg)](https://github.com/Lioheart/DjangoBlog/actions/workflows/django.yml)
+[![CodeQL](https://github.com/Lioheart/DjangoBlog/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Lioheart/DjangoBlog/actions/workflows/codeql-analysis.yml)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/Lioheart/DjangoBlog.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Lioheart/DjangoBlog/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Lioheart/DjangoBlog.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Lioheart/DjangoBlog/context:python)
 [![Requirements Status](https://requires.io/github/Lioheart/DjangoBlog/requirements.svg?branch=master)](https://requires.io/github/Lioheart/DjangoBlog/requirements/?branch=master)
@@ -52,5 +52,3 @@ Projekt przykładowy.
 
 ## Licencja
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-<div>Icons from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

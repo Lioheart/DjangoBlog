@@ -1,7 +1,9 @@
+from django.core.mail import send_mail
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 
+from blog.forms import EmailPostForm
 from blog.models import Post
 
 
@@ -18,6 +20,39 @@ class PostListView(ListView):
     context_object_name = 'posts'
     paginate_by = 3
     template_name = 'blog/post/list.html'
+
+
+def post_share(request, post_id):
+    """
+    Pobranie posta na podstawie jego identyfikatora.
+
+    :param request:
+    :param post_id: int
+    :return: witryna http wyświetlająca formularz.
+    """
+    post = get_object_or_404(Post, id=post_id, status='published')
+    send = False
+
+    if request.method == 'POST':
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Weryfikacja pól formularza zakończona powodzeniem.
+            cd = form.cleaned_data
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = '{} ({}) zachęca do przeczytania "{}"'.format(cd['name'], cd['email'], post.title)
+            message = 'Przeczytaj post "{}" na stronie {}\n\n Komentarz dodany przez {}: {}'.format(post.title,
+                                                                                                    post_url,
+                                                                                                    cd['name'],
+                                                                                                    cd['comments'])
+            send_mail(subject, message, 'admin@myblog.com', [cd['to']])
+            send = True
+    else:
+        form = EmailPostForm()
+    return render(request, 'blog/post/share.html', {
+        'post': post,
+        'form': form,
+        'send': send,
+    })
 
 
 def post_list(request):
