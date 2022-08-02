@@ -61,3 +61,29 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    """
+    Commentjest modelem do przechowywania komentarzy.
+
+    Zawarty jest tu klucz obcy dla konkretnego posta. Każdy komentarz przeznaczony jest dla konkretnego posta,
+    a sam post może mieć wiele komentarzy. Atrybut related_name umożliwia nadanie nazwy atrybutowi, dzięki czemu
+    możemy uzyć comment.post() do pobrania konkretnego posta, lub post.comments.all() do pobrania wszystkich
+    komentarzy.
+    """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80, verbose_name='Imię')
+    email = models.EmailField(verbose_name='Email')
+    body = models.TextField(verbose_name='Komentarz')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Utworzono')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Zmodyfikowano')
+    active = models.BooleanField(default=True, verbose_name='Aktywny')
+
+    class Meta:
+        ordering = ('created',)
+        verbose_name = 'Komentarz'
+        verbose_name_plural = 'Komentarze'
+
+    def __str__(self):
+        return f'Komentarz dodany przez {self.name} dla posta {self.post}'
