@@ -1,6 +1,6 @@
 from django import forms
 
-from blog.models import Comment
+from .models import Comment
 
 
 class EmailPostForm(forms.Form):

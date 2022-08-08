@@ -5,8 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from taggit.models import Tag
 
-from blog.forms import EmailPostForm, CommentForm
-from blog.models import Post
+from .forms import EmailPostForm, CommentForm
+from .models import Post
 
 
 class PostListView(ListView):
@@ -41,11 +41,8 @@ def post_share(request, post_id):
             # Weryfikacja pól formularza zakończona powodzeniem.
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = '{} ({}) zachęca do przeczytania "{}"'.format(cd['name'], cd['email'], post.title)
-            message = 'Przeczytaj post "{}" na stronie {}\n\n Komentarz dodany przez {}: {}'.format(post.title,
-                                                                                                    post_url,
-                                                                                                    cd['name'],
-                                                                                                    cd['comments'])
+            subject = f'{cd["name"]} ({cd["email"]}) zachęca do przeczytania "{post.title}"'
+            message = f'Przeczytaj post "{post.title}" na stronie {post_url}\n\n Komentarz dodany przez {cd["name"]}: {cd["comments"]}'
             send_mail(subject, message, 'admin@myblog.com', [cd['to']])
             send = True
     else:
