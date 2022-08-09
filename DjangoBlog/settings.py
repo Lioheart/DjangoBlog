@@ -26,6 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'taggit',
-    'django_extensions'
+    'django_extensions',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +80,13 @@ WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dkylzovw',
+        'USER': 'dkylzovw',
+        'PASSWORD': 'rsbiFR3w-3y-eq_36SVjWUTslYzCosJ8',
+        'HOST': 'tai.db.elephantsql.com'
+    },
+    'default_local': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
