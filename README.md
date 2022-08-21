@@ -1,4 +1,4 @@
-<h1 align="center"> Django Blog </h1>
+<h1 style="text-align:center"> Django Blog </h1>
 
 Witryna internetowa aplikacji Blog.
 
@@ -19,12 +19,16 @@ Witryna internetowa aplikacji Blog.
 
 Aplikacja ta zawiera podstawowe modele bloga, widoki, szablony i adresy URL przeznaczone do wyświetlania postów.
 Zawiera także obsługę ORM i konfigurację witryny administracyjnej.
+
+Aplikacja obsługuje wysyłanie wiadomości email, komentarze, tagowanie postów, własne znaczniki i filtry szablonów, mapę witryny, wiadomości RRS, wyszukiwarkę z podobieństwem trygramu
 	
 ## Technologie
 Projekt jest tworzony z wykorzystaniem technologii:
 * Django
+* Django-taggit
+* Markdown
 	
-## Setup
+## Instalacja
 Aby uruchomić projekt, wykonaj poniższe polecenia:
 
 ```
